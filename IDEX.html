@@ -1,0 +1,221 @@
+html
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CIJ PRODUCT - Accueil</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #007BFF, #00C9A7, #FFD700, #FF6B6B);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+}
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%;}
+      50% { background-position: 100% 50%;}
+      100% { background-position: 0% 50%;}
+}
+
+.overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+.logo {
+      width: 120px;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8);}
+      to { opacity: 1; transform: scale(1);}
+}
+
+    h1 {
+      font-size: 48px;
+      color: #007BFF;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px #ccc;
+      animation: slideDown 1.5s ease-out;
+}
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0;}
+      to { transform: translateY(0); opacity: 1;}
+}
+
+.welcome {
+      font-size: 20px;
+      max-width: 700px;
+      margin-bottom: 40px;
+      color: #333;
+      font-weight: bold;
+      animation: flash 1.5s infinite;
+      border: 2px dashed #007BFF;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #e6f0ff;
+}
+
+    @keyframes flash {
+      0%, 100% { opacity: 1;}
+      50% { opacity: 0.5;}
+}
+
+.buttons {
+      display: flex;
+      gap: 40px;
+      margin-top: 20px;
+}
+
+.btn-flash {
+      font-size: 22px;
+      padding: 18px 40px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: flash 1.5s infinite;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+}
+
+.btn-flash:hover {
+      transform: scale(1.05);
+      background-color: #0056b3;
+}
+  </style>
+</head>
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CIJ PRODUCT - Accueil</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #007BFF, #00C9A7, #FFD700, #FF6B6B);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+}
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%;}
+      50% { background-position: 100% 50%;}
+      100% { background-position: 0% 50%;}
+}
+
+.overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+.logo {
+      width: 120px;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8);}
+      to { opacity: 1; transform: scale(1);}
+}
+
+    h1 {
+      font-size: 48px;
+      color: #007BFF;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px #ccc;
+      animation: slideDown 1.5s ease-out;
+}
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0;}
+      to { transform: translateY(0); opacity: 1;}
+}
+
+.welcome {
+      font-size: 20px;
+      max-width: 700px;
+      margin-bottom: 40px;
+      color: #333;
+      font-weight: bold;
+      animation: flash 1.5s infinite;
+      border: 2px dashed #007BFF;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #e6f0ff;
+}
+
+    @keyframes flash {
+      0%, 100% { opacity: 1;}
+      50% { opacity: 0.5;}
+}
+
+.buttons {
+      display: flex;
+      gap: 40px;
+      margin-top: 20px;
+}
+
+.btn-flash {
+      font-size: 22px;
+      padding: 18px 40px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: flash 1.5s infinite;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+}
+
+.btn-flash:hover {
+      transform: scale(1.05);
+      background-color: #0056b3;
+}
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <img src="images/logo.jpg" alt="Logo CIJ PRODUCT" class="logo">
+    <h1>CIJ PRODUCT</h1>
+    <p class="welcome">
+      Bienvenue chez <strong>CIJ PRODUCT</strong>, une entreprise camerounaise engagée dans la promotion des produits et services réalisés par les jeunes en difficulté d'insertion sociale de DOUALA III.
+    </p>
+    <div class="buttons">
+      <!-- ✅ Liens mis à jour -->
+      <button onclick="window.location.href='produit cij.html'" class="btn-flash">Produits</button>
+      <button onclick="window.location.href='nos service.html'" class="btn-flash">Services</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+

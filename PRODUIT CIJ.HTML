@@ -1,0 +1,292 @@
+[14:53, 21/09/2025] Microsoft Copilot: ``html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nos Produits - CIJ PRODUCT</title>
+  [02:51, 28/09/2025] Microsoft Copilot: html
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nos Produits - CIJ PRODUCT</title>
+  <style>
+    @keyframes slideFade {
+      0% {
+        opacity: 0;
+        transform: translateY(-40px);
+}
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+}
+}
+
+.page-header h1 {
+      animation: slideFade 3s ease-out forwards;
+      opacity: 0;
+}
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f8ff, #ffffff);
+      color: #333;
+}
+
+.page-header {
+      background: linear-gradient(to right, #007BFF, #00BFFF);
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+    h1 {
+      font-size: 36px;
+      margin: 0;
+      letter-spacing: 1px;
+}
+
+.product-section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+}
+
+    h2 {
+      color: #007BFF;
+      font-size: 30px;
+      margin-bottom: 25px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+}
+
+    h3 {
+      color: #333;
+      font-size: 22px;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #007BFF;
+      padding-bottom: 5px;
+}
+
+.product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+}
+
+.product-card {
+      background-color: #ffffff;
+      border: 1px solid #cce5ff;
+      border-radius: 10px;
+      width: 180px;
+      height: 280px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+}
+
+.product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      background-color: #e6f2ff;
+}
+
+.product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+}
+
+.product-card p {
+      font-size: 15px;
+      color: #333;
+      margin: 0;
+      font-weight: 500;
+      line-height: 1.4;
+}
+
+.center-button {
+      text-align: center;
+      margin: 50px 0;
+}
+
+.btn-flash {
+      font-size: 18px;
+      padding: 12px 30px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      animation: flash 1.5s infinite;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+    @keyframes flash {
+      0%, 100% { opacity: 1;}
+      50% { opacity: 0.6;}
+}
+
+.panier-icon {
+      width: 40px;
+      margin-bottom: 10px;
+}
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+}
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+}
+}
+
+    /* ✅ Animation du bouton Commander */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(40, 167, 69, 0.7);
+}
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(40, 167, 69, 0.7);
+}
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(40, 167, 69, 0.7);
+}
+}
+
+.commande-container {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+}
+
+.btn-commande {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      animation: pulse 2s infinite;
+[02:51, 28/09/2025] Microsoft Copilot: }
+
+.btn-commande:hover {
+      background-color: #218838;
+      animation: none;
+}
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Nos Produits</h1>
+  </header>
+
+  <main class="product-section">
+    <h2>Produits Alimentaires</h2>
+
+    <h3>Pâtisserie artisanale</h3>
+    <div class="product-grid">
+      <div class="product-card"><img src="images/gateau-creme.jpg"><p>Gâteau à la crème - 5000 FCFA</p></div>
+      <div class="product-card"><img src="images/pizza.jpg"><p>Pizza - 3000 FCFA</p></div>
+      <div class="product-card"><img src="images/muffin.jpg"><p>Muffin - 500 FCFA PAQUET DE CINQ</p></div>
+      <div class="product-card"><img src="images/gateau.jpg"><p>Gâteau simple - 2000 FCFA</p></div>
+      <div class="product-card"><img src="images/croquette.jpg"><p>Croquettes - 1500 FCFA</p></div>
+      <div class="product-card"><img src="images/beignet.jpg"><p>Beignet - 500 FCFA</p></div>
+      <div class="product-card"><img src="images/tarte.jpg"><p>Tarte - 1800 FCFA</p></div>
+      <div class="product-card"><img src="images/crepe.jpg"><p>Crêpe - 1500 FCFA (15 pièces)</p></div>
+      <div class="product-card"><img src="images/neems.jpg"><p>Neems - 2000 FCFA (10 pièces)</p></div>
+      <div class="product-card"><img src="images/sable.jpg"><p>Sablé - 500 FCFA PAQUET DE CINQ</p></div>
+      <div class="product-card"><img src="images/croissant.jpg"><p>Croissant - 350 FCFA</p></div>
+      <div class="product-card"><img src="images/donut.jpg"><p>Donut - 300 FCFA L'UNITE</p></div>
+      <div class="product-card"><img src="images/pancake.jpg"><p>Pancake - 100 FCFA L'UNITE</p></div>
+      <div class="product-card"><img src="images/biscuit.jpg"><p>Biscuit - 700 FCFA (15 pièces)</p></div>
+    </div>
+
+    <h3>Boissons naturelles</h3>
+    <div class="product-grid">
+ <div class="product-card"><img src="images/baobab.jpg"><p>Jus de baobab - 600 FCFA</p></div>
+      <div class="product-card"><img src="images/bissap.jpg"><p>Jus de bissap - 500 FCFA</p></div>
+      <div class="product-card"><img src="images/jus-fruit.jpg"><p>Jus de fruit - 700 FCFA</p></div>
+      <div class="product-card"><img src="images/vin-palm.jpg"><p>Vin de palm - 1500 FCFA</p></div>
+      <div class="product-card"><img src="images/eau-coco.jpg"><p>Eau de coco - 500 FCFA</p></div>
+      <div class="product-card"><img src="images/gingembre.jpg"><p>Jus de gingembre - 500 FCFA</p></div>
+      <div class="product-card"><img src="images/milkshake.jpg"><p>Milkshake - 1000 FCFA</p></div>
+    </div>
+
+    <h3>Produits laitiers</h3>
+    <div class="product-grid">
+      <div class="product-card"><img src="images/fromage.jpg"><p>Fromage - 1200 FCFA</p></div>
+      <div class="product-card"><img src="images/lait-caille.jpg"><p>Lait caillé - 800 FCFA</p></div>
+      <div class="product-card"><img src="images/creme.jpg"><p>Crème - 1000 FCFA</p></div>
+    </div>
+
+    <h3>Petit déjeuner</h3>
+    <div class="product-grid">
+      <div class="product-card"><img src="images/chocolat.jpg"><p>Chocolat - 1000 FCFA</p></div>
+      <div class="product-card"><img src="images/beurre.jpg"><p>Beurre - 1200 FCFA</p></div>
+      <div class="product-card"><img src="images/mayonnaise.jpg"><p>Mayonnaise - 1500 FCFA</p></div>
+      <div class="product-card"><img src="images/beurre-cacahuete.jpg"><p>Beurre de cacahuète - 1500 FCFA</p></div>
+      <div class="product-card"><img src="images/moutarde.jpg"><p>Moutarde - 900 FCFA</p></div>
+      <div class="product-card"><img src="images/confiture.jpg"><p>Confiture - 1000 FCFA</p></div>
+    </div>
+
+    <h3>Condiments & Assaisonnements</h3>
+    <div class="product-grid">
+      <div class="product-card"><img src="images/huile-de-palm.jpg"><p>Huile de palme - 800 FCFA</p></div>
+      <div class="product-card"><img src="images/bifaga.jpg"><p>Bifaga fumée - 1400 FCFA PACK DE 10</p></div>
+      <div class="product-card"><img src="images/akpi.jpg"><p>Akpi - 500 FCFA</p></div>
+      <div class="product-card"><img src="images/pebe.jpg"><p>Pèbè - 600 FCFA LA BOITE DE PEBE</p></div>
+      <div class="product-card"><img src="images/poivre-blanc.jpg"><p>Poivre blanc - 700 FCFA</p></div>
+	  <div class="product-card"><img src="images/morure-fume.jpg"><p>morure - 700 FCFA pack de 3</p></div>
+	  
+	   <main class="product-section">
+    <h2>Produits d'entretien</h2>
+
+<h3>Entretien de la peau</h3>
+<div class="product-grid">
+  <div class="product-card"><img src="images/huile-palmiste.jpg"><p>Huile de palmiste - 1200 FCFA</p></div>
+  <div class="product-card"><img src="images/huile-coco.jpg"><p>Huile de coco - 1000 FCFA</p></div>
+  <div class="product-card"><img src="images/huile-jojoba.jpg"><p>Huile de jojoba - 1500 FCFA</p></div>
+  <div class="product-card"><img src="images/beurre-karite.jpg"><p>Beurre de karité - 1300 FCFA</p></div>
+  <div class="product-card"><img src="images/beurre-cacao.jpg"><p>Beurre de cacao - 1400 FCFA</p></div>
+  <div class="product-card"><img src="images/huile-curcuma.jpg"><p>Huile de curcuma - 1100 FCFA</p></div>
+  <div class="product-card"><img src="images/huile-raisin.jpg"><p>Huile de raisin - 1200 FCFA</p></div>
+</div>
+
+<h3>Entretien ménager</h3>
+<div class="product-grid">
+  <div class="product-card"><img src="images/cristaux.jpg"><p>Cristaux de soude - 800 FCFA</p></div>
+  <div class="product-card"><img src="images/bicarbonate.jpg"><p>Bicarbonate de soude - 700 FCFA</p></div>
+  <div class="product-card"><img src="images/savon-morceaux.jpg"><p>Savon en morceaux - 500 FCFA</p></div>
+  <div class="product-card"><img src="images/savon-poudre.jpg"><p>Savon en poudre - 600 FCFA</p></div>
+  <div class="product-card"><img src="images/vinaigre blanc.jpg"><p>Vinaigre blanc - 900 FCFA</p></div>
+  <div class="product-card"><img src="images/savon-liquide.jpg"><p>Savon liquide pour vaisselle - 1000 FCFA</p></div>
+  <div class="product-card"><img src="images/eau-javel.jpg"><p>Eau de javel - 700 FCFA</p></div>
+</div>
+  <!-- ✅ Bouton animé Commander avec redirection vers commande.html -->
+  <div class="commande-container">
+    <a href="commande.html" class="btn-commande">Commander</a>
+  </div>
+</BODY>
+</HTML>

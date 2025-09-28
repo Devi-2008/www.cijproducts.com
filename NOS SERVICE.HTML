@@ -1,0 +1,227 @@
+[03:32, 28/09/2025] Microsoft Copilot: html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nos Services - CIJ PRODUCT</title>
+  <style>
+    css
+/* Structure générale */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #f0f8ff, #ffffff);
+  color: #333;
+}
+
+/* En-tête */
+header {
+  background: linear-gradient(to right, #FF6B6B, #FFB347);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: 1px;
+  animation: slideDown 1.5s ease-out;
+}
+
+/* Animation du titre */
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0;}
+  to { transform: translateY(0); opacity: 1;}
+}
+
+/* Section principale */
+.service-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Rubriques animées */
+.rubrique {
+  margin-bottom: 60px;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Titres de rubriques */
+.rubrique h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #FF6B6B;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Grille de services centrée */
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Cartes de service */
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid #ffe0e0;
+  border-radius: 12px;
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  background-color: #fff8f8;
+}
+
+/* Images dans les cartes */
+.service-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Titres et textes */
+.service-card h3 {
+  font-size: 22px;
+  color: #FF6B6B;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Bouton de réservation animé */
+.reservation-container {
+  text-align: center;
+  margin: 60px 0 40px;
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+.btn-reservation {
+  background: linear-gradient(to right, #28a745, #34c759);
+  color: white;
+  padding: 15px 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);}
+  50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(40, 167, 69, 0.6);}
+  100% { transform: scale(1); box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);}
+}
+
+.btn-reservation:hover {
+  background: linear-gradient(to right, #218838, #28a745);
+  transform: scale(1.08);
+  animation: none;
+}
+
+/* Pied de page */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #FF6B6B;
+  color: white;
+  font-size: 16px;
+}
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nos Services</h1>
+  </header>
+
+  <section class="service-section">
+    <!-- Rubrique Beauté -->
+    <div class="rubrique">
+      <h2>Beauté</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <img src="images/manicure.jpg" alt="Manicure">
+          <h3>Manicure</h3>
+          <p>Soins des ongles pour une apparence soignée et élégante-<strong>A PARTIR DE 2500</strong>.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/pedicure.jpg" alt="Pédicure">
+          <h3>Pédicure</h3>
+          <p>Nettoyage et mise en beauté des pieds pour un confort optimal-<strong>A PARTIR DE 3000</strong>.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/make-up.jpg" alt="Make-up">
+          <h3>Make-up</h3>
+          <p>Maquillage personnalisé pour toutes vos occasions-<strong>A PARTIR DE 2500 FCFA </strong>.</p>
+        </div>
+    </div>
+
+    <!-- Rubrique Services professionnels -->
+    <div class="rubrique">
+      <h2>Services Professionnels</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <img src="images/traiteur.jpg" alt="Service Traiteur">
+          <h3>Service Traiteur</h3>
+          <p>Plats savoureux adaptés à vos besoins pour événements et cérémonies.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/secretaire.jpg" alt="Secrétaire Bureautique">
+          <h3>Secrétaire Bureautique</h3>
+          <p>Gestion administrative – <strong>140 000 FCFA / mois</strong>.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/chauffeur.jpg" alt="Chauffeur Voiture">
+          <h3>Chauffeur Voiture</h3>
+          <p>Transport privé ou professionnel – <strong>100 000 FCFA / mois</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bouton de réservation -->
+    <div class="reservation-container">
+      <button onclick="window.location.href='formulaire.html'" class="btn-reservation">
+        Réservation à domicile
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 CIJ PRODUCT - Tous droits réservés
+  </footer>
+</body>
+</html>
+```

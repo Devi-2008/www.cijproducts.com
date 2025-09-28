@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Commander - CIJ PRODUCT</title>
+  <style>
+ body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f8ff;
+  padding: 20px;
+  margin: 0;
+}
+
+form {
+  max-width: 700px;
+  margin: auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #007BFF;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #007BFF;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #007BFF;
+  padding-bottom: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #cce5ff;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #007BFF;
+  color: white;
+}
+
+.montant-produit {
+  font-weight: bold;
+  color: #007BFF;
+  transition: background-color 0.6s ease;
+}
+
+#recapitulatif {
+  margin-top: 30px;
+  background-color: #e6f2ff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#listeMontants {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+#listeMontants li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #ccc;
+  font-size: 15px;
+  color: #333;
+}
+
+#total {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007BFF;
+  text-align: right;
+  margin-top: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-flash {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: flash 1.5s infinite;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.btn-flash:hover {
+  background-color: #0056b3;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1;}
+  50% { opacity: 0.7;}
+}
+
+/* Animation de surbrillance */
+@keyframes highlight {
+  0%   { background-color: #ffffcc;}
+  100% { background-color: transparent;}
+}
+
+.montant-produit.animate {
+  animation: highlight 0.6s ease;
+}
+
+/* Animation du total */
+@keyframes flashTotal {
+  0%   { color: #ff5722; transform: scale(1.1);}
+  100% { color: #007BFF; transform: scale(1);}
+}
+
+#total.animate {
+  animation: flashTotal 0.6s ease;
+}
+
+  </style>
+
+ <script>
+  function validerNumero() {
+    const numero = document.getElementById("telephone").value;
+    const regex = /^(6[0-9]{8})$/;
+    if (!regex.test(numero)) {
+      alert("Numéro de téléphone invalide");
+      return false;
+}
+    return true;
+}
+
+  function calculerTotal() {
+    let total = 0;
+    const lignes = document.querySelectorAll('table tbody tr');
+    const recap = document.getElementById("listeMontants");
+    recap.innerHTML = "";
+
+    lignes.forEach(ligne => {
+      const produit = ligne.querySelector('td:first-child').textContent;
+      const input = ligne.querySelector('input[type="number"]');
+      const montantCell = ligne.querySelector('.montant-produit');
+      const prix = parseInt(input.getAttribute('data-prix')) || 0;
+      const quantite = parseInt(input.value) || 0;
+      const montant = prix * quantite;
+
+      // Affiche le montant dans la cellule correspondante
+      montantCell.textContent = montant + " FCFA";
+
+      // Ajoute au total général
+      total += montant;
+
+      // Ajoute au récapitulatif si quantité> 0
+      if (quantite> 0) {
+        const item = document.createElement("li");
+        item.textContent = `${produit} × ${quantite} = ${montant} FCFA`;
+        recap.appendChild(item);
+}
+});
+
+    // Affiche le total général
+    document.getElementById("total").textContent = "Total: " + total + " FCFA";
+    document.getElementById("totalInput").value = total;
+}
+</script>
+<script>
+  function afficherTransaction() {
+    const mode = document.getElementById("paiement").value;
+    const transactionField = document.getElementById("transaction-container");
+
+    if (mode === "Mobile Money") {
+      transactionField.style.display = "block";
+} else {
+      transactionField.style.display = "none";
+}
+}
+</script>
+
+</head>
+<body onload="calculerTotal()">
+
+  <h1>Formulaire de commande</h1>
+  <form >
+    <label>Nom: <input type="text" name="nom" required></label>
+    <label>Prénom: <input type="text" name="prenom" required></label>
+    <label>Téléphone: <input type="text" name="telephone" id="telephone" required></label>
+
+    <h3>Produits et services disponibles</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Prix Unitaire</th>
+          <th>Quantité</th>
+          <th>Montant</th>
+		  </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gâteau</td>
+          <td>2000 FCFA</td>
+          <td><input type="number" name="quantite[Gâteau]" min="0" value="0" data-prix="2000" onchange="calculerTotal()"></td>
+          <td class="montant-produit">0 FCFA</td>
+        </tr>
+		<tr>
+          <td>MUFFINS</td>
+          <td>500 FCFA</td>
+          <td><input type="number" name="quantite[Gâteau]" min="0" value="0" data-prix="500" onchange="calculerTotal()"></td>
+          <td class="montant-produit">0 FCFA</td>
+        </tr>
+		<tr>
+          <td>PIZZA</td>
+          <td>3000 FCFA</td>
+          <td><input type="number" name="quantite[Gâteau]" min="0" value="0" data-prix="3000" onchange="calculerTotal()"></td>
+          <td class="montant-produit">0 FCFA</td>
+        </tr>
+		<tr>
+          <td>CROQUETTE</td>
+          <td>1500 FCFA</td>
+          <td><input type="number" name="quantite[Gâteau]" min="0" value="0" data-prix="1500" onchange="calculerTotal()"></td>
+          <td class="montant-produit">0 FCFA</td>
+        </tr>
+		<tr>
+          <td>GATEAUX A LA CREME</td>
+          <td>5000 FCFA</td>
+          <td><input type="number" name="quantite[Gâteau]" min="0" value="0" data-prix="5000" onchange="calculerTotal()"></td>
+          <td class="montant-produit">0 FCFA</td>
+        </tr>
+		<tr>
+          <td>CREPE</td>
+          <td>1500 FCFA</td>
+          <td><input type="number" name="quantite[Gâteau]" min="0" value="0" data-prix="1500" onchange="calculerTotal()"></td>
+          <td class="montant-produit">0 FCFA</td>
+        </tr>
+        <tr>
+          <td>Jus de bissap</td>
+          <td>500 FCFA</td>
+          <td><input type="number" name="quantite[Jus de bissap]" min="0" value="0" data-prix="500" onchange="calculerTotal()"></td>
+          <td class="montant-produit">0 FCFA</td>
+        </tr>
+        <!-- Tu peux ajouter d'autres produits ici -->
+      </tbody>
+    </table>
+
+    <div id="recapitulatif">
+      <h3>Récapitulatif des montants</h3>
+      <ul id="listeMontants"></ul>
+      <p id="total">Total: 0 FCFA</p>
+    </div>
+
+    <input type="hidden" name="total" id="totalInput">
+
+    <label for="paiement">Mode de paiement mobile</label>
+	  <select id="paiement" name="paiement" onchange="afficherInstructions()" required>
+        <option value="">-- Choisir un mode --</option>
+        <option value="orange-money">Orange Money</option>
+        <option value="mtn-mobile-money">MTN Mobile Money</option>
+        <option value="wave">Wave</option>
+        <option value="cash">Paiement en espèces</option>
+      </select>
+
+<div id="info-paiement"></div>
+
+      <label for="transaction">Code de transaction (si paiement mobile)</label>
+      <input type="text" id="transaction" name="transaction" placeholder="Ex: OM123456789" required>
+
+      <label for="message">Message ou précision</label>
+      <textarea id="message" name="message" rows="4" placeholder="Exemple: Heure DE LIVRAISON,INDICATION EXACTE DU LIEU DE LIVRAISON."></textarea>
+
+      
+    </form>
+	<a href="merci.html">
+  <button type="button">Entrer</button>
+</a>
+
+
+<script>
+    function afficherInstructions() {
+      const mode = document.getElementById("paiement").value;
+      const info = document.getElementById("info-paiement");
+
+      switch (mode) {
+        case "orange-money":
+          info.innerHTML = "📱 Orange Money: <strong>699 39 20 73</strong><br>Veuillez effectuer le paiement avant de valider.";
+          break;
+        case "mtn-mobile-money":
+          info.innerHTML = "📱 MTN Mobile Money: <strong>682 44 01 50</strong><br>Veuillez effectuer le paiement avant de valider.";
+          break;
+        case "wave":
+          info.innerHTML = "🌊 Wave: <strong>678 00 01 11</strong><br>Effectuez le paiement via l’application Wave.";
+          break;
+        case "cash":
+          info.innerHTML = "💵 Paiement en espèces accepté à la livraison.";
+          break;
+        default:
+          info.innerHTML = "";
+}
+}
+
+    function afficherMerci() {
+      document.getElementById("formulaire").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
+      return false; // empêche l'envoi réel du formulaire
+}
+  </script>
+
+    <label>Référence de paiement: <input type="text" name="reference" required></label>
+
+    <button type="submit" class="btn-flash">Entrer</button>
+	</body>
+  </form>
+</html>
+```

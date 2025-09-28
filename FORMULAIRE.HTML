@@ -1,0 +1,210 @@
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation à domicile - CIJ PRODUCT</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e6f9f0, #ffffff);
+      color: #333;
+}
+
+    header {
+      background: linear-gradient(to right, #28a745, #34c759);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+      animation: slideDown 1.5s ease-out;
+}
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0;}
+      to { transform: translateY(0); opacity: 1;}
+}
+
+.form-section {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+}
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+}
+
+.form-section h2 {
+      text-align: center;
+      color: #28a745;
+      margin-bottom: 30px;
+      font-size: 24px;
+}
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+}
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+}
+
+    textarea {
+      resize: vertical;
+}
+
+.btn-submit {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      display: block;
+      margin: auto;
+}
+
+.btn-submit:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+}
+
+    #info-paiement {
+      margin-bottom: 20px;
+      color: #28a745;
+      font-weight: bold;
+}
+
+    #confirmation {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      color: #28a745;
+      font-weight: bold;
+}
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #28a745;
+      color: white;
+      margin-top: 40px;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Réservation à domicile</h1>
+  </header>
+
+  <section class="form-section">
+    <h2>Formulaire de demande</h2>
+    <form onsubmit="return afficherMerci()" id="formulaire">
+      <label for="nom">Nom complet</label>
+      <input type="text" id="nom" name="nom" required>
+
+      <label for="telephone">Numéro de téléphone</label>
+      <input type="tel" id="telephone" name="telephone" required>
+
+      <label for="adresse">Adresse de domicile</label>
+      <input type="text" id="adresse" name="adresse" required>
+
+      <label for="service">Service souhaité</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choisir un service --</option>
+        <option value="manicure">Manicure</option>
+        <option value="pedicure">Pédicure</option>
+        <option value="makeup">Make-up</option>
+        <option value="coiffure">Coiffure</option>
+        <option value="traiteur">Service Traiteur</option>
+        <option value="secretaire">Secrétaire Bureautique</option>
+        <option value="chauffeur">Chauffeur Voiture</option>
+      </select>
+
+      <label for="date">Date souhaitée</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="paiement">Mode de paiement mobile</label>
+	  <select id="paiement" name="paiement" onchange="afficherInstructions()" required>
+        <option value="">-- Choisir un mode --</option>
+        <option value="orange-money">Orange Money</option>
+        <option value="mtn-mobile-money">MTN Mobile Money</option>
+        <option value="wave">Wave</option>
+        <option value="cash">Paiement en espèces</option>
+      </select>
+
+      <div id="info-paiement"></div>
+
+      <label for="transaction">Code de transaction (si paiement mobile)</label>
+      <input type="text" id="transaction" name="transaction" placeholder="Ex: OM123456789" required>
+
+      <label for="message">Message ou précision</label>
+      <textarea id="message" name="message" rows="4" placeholder="Exemple: Heure préférée, nombre de personnes, etc."></textarea>
+
+      <button type="submit" class="btn-submit">Envoyer la demande</button>
+    </form>
+
+    <div id="confirmation">
+      ✅ Merci! Votre demande a été envoyée avec succès.
+    </div>
+  </section>
+
+  <script>
+    function afficherInstructions() {
+      const mode = document.getElementById("paiement").value;
+      const info = document.getElementById("info-paiement");
+
+      switch (mode) {
+        case "orange-money":
+          info.innerHTML = "📱 Orange Money: <strong>699 39 20 73</strong><br>Veuillez effectuer le paiement avant de valider.";
+          break;
+        case "mtn-mobile-money":
+          info.innerHTML = "📱 MTN Mobile Money: <strong>682 44 01 50</strong><br>Veuillez effectuer le paiement avant de valider.";
+          break;
+        case "wave":
+          info.innerHTML = "🌊 Wave: <strong>678 00 01 11</strong><br>Effectuez le paiement via l’application Wave.";
+          break;
+        case "cash":
+          info.innerHTML = "💵 Paiement en espèces accepté à la livraison.";
+          break;
+        default:
+          info.innerHTML = "";
+}
+}
+
+    function afficherMerci() {
+      document.getElementById("formulaire").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
+      return false; // empêche l'envoi réel du formulaire
+}
+  </script>
+
+  <footer>
+    &copy; 2025 CIJ PRODUCT - Tous droits réservés
+  </footer>
+</body>
+</html>
